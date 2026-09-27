@@ -1,5 +1,32 @@
 # HRM-MLX
 
+<!-- recycling-plan:start -->
+## Recycling erforderlich
+
+**Stand: 27.09.2026 · Status: zur Wiederverwendung vorgesehen, Übernahme noch offen.**
+
+Vor allem die eigene Dokumentation muss recycelt werden. Der Fork dient bis dahin als Forschungsreferenz; eine eigenständige Weiterentwicklung des identischen Modellcodes ist derzeit nicht vorgesehen.
+
+### Was recycelt werden muss
+
+- [ ] Die Erläuterungen zu Herkunft, HRM/MLX, Portierungsstand, Installation sowie Trainings-/Evaluationsablauf in der künftigen Forschungsdokumentation erhalten. [README.md](README.md)
+- [ ] Die dokumentierten Grenzen sichern: fehlende ARC-/Maze-Portierung und nicht nachgewiesene Reproduktion der Originalbenchmarks. [README.md](README.md)
+- [ ] Modell-, Trainings- und Evaluationspfade als Referenz dokumentieren und bei Bedarf direkt den Upstream verwenden. [models/hrm/hrm_act_v1.py](models/hrm/hrm_act_v1.py) · [pretrain.py](pretrain.py) · [evaluate.py](evaluate.py)
+
+### Vor der Übernahme ersetzen oder prüfen
+
+- [ ] Vor einer erneuten Forschungsnutzung ein konkretes Experiment samt Datensatz, Checkpoint, Speicherbedarf und reproduzierbarer Evaluation festlegen. [pretrain.py](pretrain.py) · [evaluate.py](evaluate.py)
+
+Der Vergleich vom 27.09.2026 zwischen diesem Stand (`468ca04f0b6285d4a91c83c4e6161c0498a92189`) und [kmkofficial/hrm-mlx](https://github.com/kmkofficial/hrm-mlx/tree/5b7002c43c55d901fb7528f6d4d18cd7880e9b06) zeigt: 29 Dateien je Baum, nur `README.md` unterschiedlich, alle 18 Python-Dateien identisch. [TinyRecursiveModels](https://github.com/SamsungSAILMontreal/TinyRecursiveModels) ist eine wissenschaftliche Vergleichsquelle, aber bereits archiviert; ein ausgereifter direkter MLX-Nachfolger ist bislang nicht belegt.
+
+### Zielarchitektur und Abschluss
+
+Die neue Plugin-Struktur muss geräte- und OS-unabhängig für **Android, iOS, macOS, Linux und Windows 11** sein. MLX, Modellinferenz und weitere plattformspezifische Abhängigkeiten sind dafür als austauschbare lokale oder entfernte Backends anzubinden. Das ist die Zielarchitektur; heutige Unterstützung aller fünf Plattformen ist damit nicht nachgewiesen.
+
+Das Recycling ist abgeschlossen, wenn die eigene Dokumentation an einem gepflegten Zielort übernommen ist und Herkunft sowie Grenzen nachvollziehbar verlinkt sind. Anschließend kann über die Archivierung dieses Forks entschieden werden.
+<!-- recycling-plan:end -->
+
+
 MLX-Portierung des **Hierarchical Reasoning Model** (Wang et al., 2025) für Apple Silicon.
 
 Dieses Repo ist ein Fork von [`kmkofficial/hrm-mlx`](https://github.com/kmkofficial/hrm-mlx) mit aufgeräumter Dokumentation. Die eigentliche MLX-Portierung stammt aus diesem Upstream; das Original-HRM ist [`sapientinc/HRM`](https://github.com/sapientinc/HRM) (PyTorch/CUDA).
